@@ -1091,6 +1091,15 @@ h1, h2, h3, h4 {
 
 .upi-app-icon {
     font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upi-app-icon svg {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
 }
 
 .upi-app-btn[data-app="gpay"] .upi-app-icon::after { content: ''; }
