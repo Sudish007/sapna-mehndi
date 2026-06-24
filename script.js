@@ -207,3 +207,102 @@ animStyle.textContent = `
     }
 `;
 document.head.appendChild(animStyle);
+
+
+// ===== Enrollment Form Handler =====
+const enrollForm = document.getElementById('enrollForm');
+if (enrollForm) {
+    enrollForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(enrollForm);
+        const data = Object.fromEntries(formData.entries());
+
+        // Validate phone
+        const phoneRegex = /^[6-9]\d{9}$/;
+        if (!phoneRegex.test(data.phone)) {
+            showNotification('Please enter a valid 10-digit phone number', 'error');
+            return;
+        }
+
+        // Course pricing
+        const coursePricing = {
+            'beginner': 2500,
+            'intermediate': 4500,
+            'professional': 8000
+        };
+
+        const paymentType = data['enroll-payment'];
+        const courseAmount = coursePricing[data.course] || 2500;
+        const amount = paymentType === 'full' ? courseAmount : 500;
+
+        // Build WhatsApp message
+        const whatsappMsg = encodeURIComponent(
+            `📚 *New Course Enrollment*\n\n` +
+            `👤 Name: ${data.name}\n` +
+            `📞 Phone: ${data.phone}\n` +
+            `📖 Course: ${data.course}\n` +
+            `📅 Batch: ${data.batch}\n` +
+            `💰 Payment: ${paymentType === 'full' ? 'Full Fee ₹' + courseAmount : 'Registration ₹500'}\n\n` +
+            `Please confirm my enrollment.`
+        );
+
+        // Show confirmation
+        const modal = document.createElement('div');
+        modal.className = 'booking-modal';
+        modal.innerHTML = `
+            <div class="modal-overlay" onclick="this.parentElement.remove()"></div>
+            <div class="modal-content">
+                <button class="modal-close" onclick="this.closest('.booking-modal').remove()">&times;</button>
+                <div class="modal-icon">📚</div>
+                <h3>Enrollment Summary</h3>
+                <div style="text-align:left;background:#f9f5f2;padding:20px;border-radius:10px;margin:20px 0;">
+                    <p><strong>Course:</strong> ${data.course.charAt(0).toUpperCase() + data.course.slice(1)}</p>
+                    <p><strong>Batch:</strong> ${data.batch === 'weekday' ? 'Weekday (Mon, Wed, Fri)' : 'Weekend (Sat & Sun)'}</p>
+                    <p><strong>Amount:</strong> ₹${amount.toLocaleString()} ${paymentType === 'full' ? '(Full - ₹500 saved!)' : '(Registration fee)'}</p>
+                </div>
+                <a href="https://wa.me/919110106612?text=${whatsappMsg}" target="_blank" rel="noopener" class="btn btn-whatsapp" style="display:inline-block;text-decoration:none;padding:14px 32px;border-radius:50px;background:#25D366;color:#fff;font-weight:500;">
+                    💬 Confirm on WhatsApp
+                </a>
+                <p style="margin-top:12px;font-size:0.8rem;color:#999;">Sapna will confirm your seat and share class details</p>
+            </div>
+        `;
+
+        // Add modal styles if not already
+        if (!document.querySelector('.enrollment-modal-style')) {
+            const style = document.createElement('style');
+            style.className = 'enrollment-modal-style';
+            style.textContent = `
+                .booking-modal { position:fixed;inset:0;z-index:10001;display:flex;align-items:center;justify-content:center;padding:20px; }
+                .booking-modal .modal-overlay { position:absolute;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(5px); }
+                .booking-modal .modal-content { position:relative;background:#fff;padding:40px;border-radius:16px;max-width:450px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+                .booking-modal .modal-close { position:absolute;top:15px;right:20px;background:none;border:none;font-size:1.8rem;cursor:pointer;color:#999; }
+                .booking-modal .modal-icon { font-size:3rem;margin-bottom:10px; }
+                .booking-modal .modal-content h3 { font-family:'Playfair Display',serif;color:#8B1A4A;font-size:1.5rem; }
+            `;
+            document.head.appendChild(style);
+        }
+
+        document.body.appendChild(modal);
+
+        // Save enrollment to localStorage / Firebase
+        const enrollment = {
+            id: 'EN' + Date.now().toString(36).toUpperCase(),
+            customerName: data.name,
+            phone: data.phone,
+            service: 'course-' + data.course,
+            date: new Date().toISOString().split('T')[0],
+            time: data.batch,
+            paymentType: paymentType,
+            amount: amount,
+            status: 'pending',
+            createdAt: new Date().toISOString()
+        };
+
+        if (typeof saveBookingToFirebase === 'function') {
+            saveBookingToFirebase(enrollment);
+        }
+        const bookings = JSON.parse(localStorage.getItem('sapna_bookings') || '[]');
+        bookings.push(enrollment);
+        localStorage.setItem('sapna_bookings', JSON.stringify(bookings));
+    });
+}
