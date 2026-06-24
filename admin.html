@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Sapna Mehndi Art</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <div class="login-icon">✿</div>
+            <h1>Sapna Mehndi Art</h1>
+            <p>Admin Panel</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter admin password" required>
+                </div>
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+            <p class="login-hint">Default password: sapna2024</p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard" id="adminDashboard" style="display:none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <span>✿</span> Admin Panel
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-tab="dashboard">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="#" class="nav-item" data-tab="bookings">
+                    <span class="nav-icon">📅</span> Bookings
+                </a>
+                <a href="#" class="nav-item" data-tab="payments">
+                    <span class="nav-icon">💰</span> Payments
+                </a>
+                <a href="#" class="nav-item" data-tab="gallery">
+                    <span class="nav-icon">📷</span> Gallery
+                </a>
+                <a href="#" class="nav-item" data-tab="settings">
+                    <span class="nav-icon">⚙️</span> Settings
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-logout">🚪 Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <h2 id="pageTitle">Dashboard</h2>
+                <div class="header-right">
+                    <span class="today-date" id="todayDate"></span>
+                </div>
+            </header>
+
+            <!-- Dashboard Tab -->
+            <div class="tab-content active" id="tab-dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-info">
+                            <h3 id="totalBookings">0</h3>
+                            <p>Total Bookings</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-info">
+                            <h3 id="pendingBookings">0</h3>
+                            <p>Pending</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-info">
+                            <h3 id="confirmedBookings">0</h3>
+                            <p>Confirmed</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <h3 id="totalRevenue">₹0</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>📅 Upcoming Bookings</h3>
+                        <div id="upcomingBookings" class="booking-list">
+                            <p class="empty-state">No upcoming bookings</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>📈 Revenue This Month</h3>
+                        <div id="revenueChart" class="chart-container">
+                            <div class="revenue-bars" id="revenueBars"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookings Tab -->
+            <div class="tab-content" id="tab-bookings">
+                <div class="tab-header">
+                    <div class="filters">
+                        <select id="statusFilter" onchange="filterBookings()">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <input type="text" id="searchBooking" placeholder="Search by name or phone..." oninput="filterBookings()">
+                    </div>
+                    <button onclick="addTestBooking()" class="btn-add">+ Add Booking</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Date & Time</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookingsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Payments Tab -->
+            <div class="tab-content" id="tab-payments">
+                <div class="tab-header">
+                    <h3>Payment History</h3>
+                    <div class="payment-summary">
+                        <div class="pay-stat">
+                            <span>Total Collected:</span>
+                            <strong id="totalCollected">₹0</strong>
+                        </div>
+                        <div class="pay-stat">
+                            <span>Pending Amount:</span>
+                            <strong id="pendingAmount">₹0</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Payment Type</th>
+                                <th>Amount Paid</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paymentsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Gallery Management Tab -->
+            <div class="tab-content" id="tab-gallery">
+                <div class="tab-header">
+                    <h3>Manage Gallery</h3>
+                    <button onclick="addGalleryItem()" class="btn-add">+ Add Image</button>
+                </div>
+                <div class="gallery-manager">
+                    <div class="gallery-upload-zone" id="uploadZone">
+                        <div class="upload-icon">📷</div>
+                        <p>Click or drag images here to upload</p>
+                        <input type="file" id="galleryUpload" accept="image/*" multiple onchange="handleGalleryUpload(event)">
+                    </div>
+                    <div class="gallery-admin-grid" id="adminGalleryGrid">
+                        <p class="empty-state">No images uploaded yet. Add images to showcase your work.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-content" id="tab-settings">
+                <div class="settings-grid">
+                    <div class="card">
+                        <h3>⚙️ Business Settings</h3>
+                        <form id="settingsForm">
+                            <div class="form-group">
+                                <label>Business Name</label>
+                                <input type="text" id="businessName" value="Sapna Mehndi Art">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" id="businessPhone" value="9110106612">
+                            </div>
+                            <div class="form-group">
+                                <label>UPI ID</label>
+                                <input type="text" id="businessUPI" value="sapnamehndi@upi">
+                            </div>
+                            <div class="form-group">
+                                <label>Booking Fee (₹)</label>
+                                <input type="number" id="bookingFee" value="500">
+                            </div>
+                            <div class="form-group">
+                                <label>Instagram Handle</label>
+                                <input type="text" id="instagramHandle" value="@jamshedpurmehndiartist">
+                            </div>
+                            <div class="form-group">
+                                <label>WhatsApp Number (with country code)</label>
+                                <input type="text" id="whatsappNumber" value="919110106612">
+                            </div>
+                            <button type="submit" class="btn-save">💾 Save Settings</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3>🔐 Change Password</h3>
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <input type="password" id="currentPass" required>
+                            </div>
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" id="newPass" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm New Password</label>
+                                <input type="password" id="confirmPass" required>
+                            </div>
+                            <button type="submit" class="btn-save">🔒 Update Password</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3>📊 Data Management</h3>
+                        <div class="data-actions">
+                            <button onclick="exportBookings()" class="btn-action">📥 Export Bookings (CSV)</button>
+                            <button onclick="clearAllData()" class="btn-action btn-danger">🗑️ Clear All Data</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

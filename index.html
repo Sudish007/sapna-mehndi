@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapna Mehndi Art | Professional Mehndi Artist in Jamshedpur</title>
+    <meta name="description" content="Book Sapna, Jamshedpur's premier mehndi artist for bridal, Arabic, party & all occasions. Beautiful henna designs with easy online booking.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">✿</span> Sapna Mehndi Art
+            </a>
+            <button class="lang-toggle" id="langToggleBtn" onclick="toggleLanguage()">हिंदी</button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-lang="nav_home">Home</a></li>
+                <li><a href="#services" data-lang="nav_services">Services</a></li>
+                <li><a href="#gallery" data-lang="nav_gallery">Gallery</a></li>
+                <li><a href="#pricing" data-lang="nav_pricing">Pricing</a></li>
+                <li><a href="#booking" data-lang="nav_book">Book Now</a></li>
+                <li><a href="#contact" data-lang="nav_contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <p class="hero-subtitle" data-lang="hero_subtitle">✦ Jamshedpur's Trusted Mehndi Artist ✦</p>
+            <h1 data-lang="hero_title">Beautiful Mehndi Designs<br>for Every Occasion</h1>
+            <p class="hero-desc" data-lang="hero_desc">Bridal, Arabic, Indo-Arabic, Party & more — crafted with love and precision by Sapna</p>
+            <div class="hero-btns">
+                <a href="#booking" class="btn btn-primary" data-lang="hero_btn_book">Book Appointment</a>
+                <a href="#gallery" class="btn btn-outline" data-lang="hero_btn_work">View My Work</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num">500+</span><span class="stat-label" data-lang="hero_stat1">Happy Brides</span></div>
+                <div class="stat"><span class="stat-num">8+</span><span class="stat-label" data-lang="hero_stat2">Years Experience</span></div>
+                <div class="stat"><span class="stat-num">1000+</span><span class="stat-label" data-lang="hero_stat3">Designs Done</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <h2 class="section-title" data-lang="services_title">My Services</h2>
+            <p class="section-subtitle" data-lang="services_subtitle">From intimate gatherings to grand weddings, I bring artistry to every occasion</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💍</div>
+                    <h3 data-lang="svc_bridal_title">Bridal Mehndi</h3>
+                    <p data-lang="svc_bridal_desc">Full hands & feet intricate bridal designs. Traditional, modern, or fusion — your dream bridal mehndi, made real.</p>
+                    <span class="service-price" data-lang="svc_bridal_price">Starting ₹5,000</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌙</div>
+                    <h3 data-lang="svc_arabic_title">Arabic Mehndi</h3>
+                    <p data-lang="svc_arabic_desc">Bold, flowing patterns with beautiful negative space. Perfect for engagements, parties, and festive occasions.</p>
+                    <span class="service-price" data-lang="svc_arabic_price">Starting ₹1,500</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3 data-lang="svc_indo_title">Indo-Arabic</h3>
+                    <p data-lang="svc_indo_desc">Best of both worlds — Indian intricacy meets Arabic elegance. A stunning fusion style loved by all.</p>
+                    <span class="service-price" data-lang="svc_indo_price">Starting ₹2,000</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3 data-lang="svc_party_title">Party Mehndi</h3>
+                    <p data-lang="svc_party_desc">Quick, trendy designs for festivals, birthdays, and celebrations. Get gorgeous mehndi in under 30 minutes.</p>
+                    <span class="service-price" data-lang="svc_party_price">Starting ₹500</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💫</div>
+                    <h3 data-lang="svc_finger_title">Finger & Minimal</h3>
+                    <p data-lang="svc_finger_desc">Delicate finger trails and minimalist patterns. Modern, chic, and perfect for everyday elegance.</p>
+                    <span class="service-price" data-lang="svc_finger_price">Starting ₹300</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👶</div>
+                    <h3 data-lang="svc_baby_title">Baby Shower / Godh Bharai</h3>
+                    <p data-lang="svc_baby_desc">Special designs for expecting mothers. Gentle, beautiful patterns celebrating new beginnings.</p>
+                    <span class="service-price" data-lang="svc_baby_price">Starting ₹2,000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section - Instagram Embed -->
+    <section class="section gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-lang="gallery_title">My Work</h2>
+            <p class="section-subtitle" data-lang="gallery_subtitle">Latest designs from my Instagram — updated automatically!</p>
+            
+            <!-- Instagram Embed Feed -->
+            <div class="instagram-feed-embed">
+                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/jamshedpurmehndiartist/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                </blockquote>
+            </div>
+
+            <!-- Fallback Grid (shows when embed doesn't load) -->
+            <div class="gallery-grid" id="fallbackGallery">
+                <div class="gallery-item" data-category="bridal">
+                    <a href="https://www.instagram.com/jamshedpurmehndiartist/" target="_blank" rel="noopener">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #f5e6d3, #e8c4a0);">
+                            <span>Bridal Full Hand</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="bridal">
+                    <a href="https://www.instagram.com/jamshedpurmehndiartist/" target="_blank" rel="noopener">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">
+                            <span>Bridal Back Hand</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="arabic">
+                    <a href="https://www.instagram.com/jamshedpurmehndiartist/" target="_blank" rel="noopener">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
+                            <span>Arabic Trail</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="party">
+                    <a href="https://www.instagram.com/jamshedpurmehndiartist/" target="_blank" rel="noopener">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">
+                            <span>Party Design</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="bridal">
+                    <a href="https://www.instagram.com/jamshedpurmehndiartist/" target="_blank" rel="noopener">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #fce4ec, #ce93d8);">
+                            <span>Bridal Feet</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="arabic">
+                    <a href="https://www.instagram.com/jamshedpurmehndiartist/" target="_blank" rel="noopener">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">
+                            <span>Arabic Bold</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="gallery-cta">
+                <a href="https://www.instagram.com/jamshedpurmehndiartist/" target="_blank" rel="noopener" class="btn btn-instagram" data-lang="gallery_cta">
+                    📷 See All Designs on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title" data-lang="pricing_title">Pricing & Packages</h2>
+            <p class="section-subtitle" data-lang="pricing_subtitle">Transparent pricing — no hidden charges. Choose what suits you best.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-badge" data-lang="pkg_party_badge">Popular</div>
+                    <h3 data-lang="pkg_party_title">Party Package</h3>
+                    <div class="pricing-amount">₹500 - ₹1,500</div>
+                    <ul class="pricing-features">
+                        <li data-lang="pkg_party_f1">✓ Single hand or both hands</li>
+                        <li data-lang="pkg_party_f2">✓ Trendy modern designs</li>
+                        <li data-lang="pkg_party_f3">✓ 20-45 minutes per person</li>
+                        <li data-lang="pkg_party_f4">✓ Natural organic henna</li>
+                        <li data-lang="pkg_party_f5">✓ Home visit available</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary" data-lang="btn_book_now">Book Now</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge" data-lang="pkg_bridal_badge">Best Value</div>
+                    <h3 data-lang="pkg_bridal_title">Bridal Package</h3>
+                    <div class="pricing-amount">₹5,000 - ₹15,000</div>
+                    <ul class="pricing-features">
+                        <li data-lang="pkg_bridal_f1">✓ Full hands & feet (elbow/knee length)</li>
+                        <li data-lang="pkg_bridal_f2">✓ Customized bridal design</li>
+                        <li data-lang="pkg_bridal_f3">✓ Hidden groom's name</li>
+                        <li data-lang="pkg_bridal_f4">✓ Premium organic henna</li>
+                        <li data-lang="pkg_bridal_f5">✓ Free trial session</li>
+                        <li data-lang="pkg_bridal_f6">✓ Home visit included</li>
+                        <li data-lang="pkg_bridal_f7">✓ Aftercare tips & kit</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary" data-lang="btn_book_now">Book Now</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-badge" data-lang="pkg_engage_badge">Elegant</div>
+                    <h3 data-lang="pkg_engage_title">Engagement Package</h3>
+                    <div class="pricing-amount">₹2,000 - ₹5,000</div>
+                    <ul class="pricing-features">
+                        <li data-lang="pkg_engage_f1">✓ Both hands (front & back)</li>
+                        <li data-lang="pkg_engage_f2">✓ Arabic or Indo-Arabic style</li>
+                        <li data-lang="pkg_engage_f3">✓ 1-2 hours session</li>
+                        <li data-lang="pkg_engage_f4">✓ Organic henna paste</li>
+                        <li data-lang="pkg_engage_f5">✓ Home visit available</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary" data-lang="btn_book_now">Book Now</a>
+                </div>
+            </div>
+
+            <div class="payment-info">
+                <h3 data-lang="payment_title">💡 Payment Options</h3>
+                <div class="payment-options">
+                    <div class="payment-option">
+                        <div class="payment-icon">🔖</div>
+                        <h4 data-lang="pay_booking_title">Pay Booking Fee</h4>
+                        <p data-lang="pay_booking_desc">Reserve your date with just <strong>₹500 booking fee</strong>. Pay the remaining amount on the day of appointment.</p>
+                    </div>
+                    <div class="payment-option highlight">
+                        <div class="payment-icon">🎁</div>
+                        <h4 data-lang="pay_full_title">Pay Full Amount</h4>
+                        <p data-lang="pay_full_desc">Pay the full amount upfront and get <strong>no booking charges</strong> — save ₹500! Plus get priority scheduling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="section booking" id="booking">
+        <div class="container">
+            <h2 class="section-title" data-lang="booking_title">Book Your Appointment</h2>
+            <p class="section-subtitle" data-lang="booking_subtitle">Secure your slot — dates fill up fast during wedding season!</p>
+            
+            <form class="booking-form" id="bookingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name" data-lang="form_name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" data-lang="form_phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="e.g. 9876543210">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-lang="form_email">Email (Optional)</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="date" data-lang="form_date">Preferred Date *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time" data-lang="form_time">Preferred Time *</label>
+                        <select id="time" name="time" required>
+                            <option value="" data-lang="form_time_placeholder">Select time slot</option>
+                            <option value="9:00 AM - 11:00 AM">9:00 AM - 11:00 AM</option>
+                            <option value="11:00 AM - 1:00 PM">11:00 AM - 1:00 PM</option>
+                            <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
+                            <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
+                            <option value="6:00 PM - 8:00 PM">6:00 PM - 8:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="service" data-lang="form_service">Service Type *</label>
+                        <select id="service" name="service" required>
+                            <option value="" data-lang="form_service_placeholder">Select service</option>
+                            <option value="bridal">Bridal Mehndi (₹5,000 - ₹15,000)</option>
+                            <option value="engagement">Engagement (₹2,000 - ₹5,000)</option>
+                            <option value="arabic">Arabic Mehndi (₹1,500+)</option>
+                            <option value="indo-arabic">Indo-Arabic (₹2,000+)</option>
+                            <option value="party">Party Mehndi (₹500+)</option>
+                            <option value="minimal">Finger / Minimal (₹300+)</option>
+                            <option value="baby-shower">Baby Shower (₹2,000+)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="persons" data-lang="form_persons">Number of Persons</label>
+                        <input type="number" id="persons" name="persons" min="1" max="50" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="location" data-lang="form_location">Location / Address</label>
+                        <input type="text" id="location" name="location" placeholder="Home visit address in Jamshedpur">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="notes" data-lang="form_notes">Special Requests / Design Preference</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Describe your preferred design, reference images, or any special requests..." data-lang="form_notes_placeholder" data-lang-attr="placeholder"></textarea>
+                </div>
+
+                <!-- Payment Option -->
+                <div class="payment-selection">
+                    <h3 data-lang="form_payment_title">Choose Payment Option</h3>
+                    <div class="payment-radio-group">
+                        <label class="payment-radio">
+                            <input type="radio" name="payment" value="booking" checked>
+                            <div class="radio-content">
+                                <strong data-lang="form_pay_booking">Pay ₹500 Booking Fee</strong>
+                                <span data-lang="form_pay_booking_desc">Reserve your date now, pay remaining later</span>
+                            </div>
+                        </label>
+                        <label class="payment-radio">
+                            <input type="radio" name="payment" value="full">
+                            <div class="radio-content">
+                                <strong data-lang="form_pay_full">Pay Full Amount (Save ₹500!)</strong>
+                                <span data-lang="form_pay_full_desc">No booking charges + priority scheduling</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-large" data-lang="form_submit">Confirm Booking →</button>
+                    <p class="form-note" data-lang="form_note">You will be redirected to payment. Booking confirmed after payment.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title" data-lang="testimonials_title">What Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p data-lang="test1_text">"Sapna did my bridal mehndi and it was absolutely stunning! Everyone at the wedding couldn't stop complimenting. The colour came out so dark and beautiful."</p>
+                    <div class="testimonial-author" data-lang="test1_author">— Priya S., Bride</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p data-lang="test2_text">"Booked her for my sister's engagement. She was punctual, professional, and the designs were gorgeous. Very reasonable pricing too!"</p>
+                    <div class="testimonial-author" data-lang="test2_author">— Neha K., Jamshedpur</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p data-lang="test3_text">"Got mehndi done for Karwa Chauth. Quick, beautiful Arabic design. Sapna is so talented and sweet. Highly recommend!"</p>
+                    <div class="testimonial-author" data-lang="test3_author">— Anita M., Bistupur</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="section instagram-section" id="instagram">
+        <div class="container">
+            <h2 class="section-title" data-lang="insta_title">Latest on Instagram</h2>
+            <p class="section-subtitle" data-lang="insta_subtitle">Follow for daily design inspiration, reels, and behind-the-scenes</p>
+            
+            <!-- Instagram Profile Embed -->
+            <div class="instagram-posts-grid">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/jamshedpurmehndiartist/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px auto; max-width:540px; min-width:326px; padding:0; width:99.375%;">
+                </blockquote>
+            </div>
+
+            <div class="insta-follow">
+                <a href="https://www.instagram.com/jamshedpurmehndiartist/" target="_blank" rel="noopener" class="btn btn-instagram" data-lang="insta_follow">
+                    📸 Follow @jamshedpurmehndiartist
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp CTA -->
+    <section class="section whatsapp-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2 data-lang="wa_title">Have Questions? Chat with Sapna!</h2>
+                <p data-lang="wa_desc">Send your reference designs, ask about availability, or discuss custom packages</p>
+                <a href="https://wa.me/919110106612?text=Hi%20Sapna!%20I%20want%20to%20book%20mehndi.%20" class="btn btn-whatsapp" target="_blank" rel="noopener" data-lang="wa_btn">
+                    💬 Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><span class="logo-icon">✿</span> Sapna Mehndi Art</h3>
+                    <p data-lang="footer_desc">Professional mehndi artist serving Jamshedpur and nearby areas. Making every occasion beautiful with the art of henna.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-lang="footer_links">Quick Links</h4>
+                    <ul>
+                        <li><a href="#services" data-lang="nav_services">Services</a></li>
+                        <li><a href="#gallery" data-lang="nav_gallery">Gallery</a></li>
+                        <li><a href="#pricing" data-lang="nav_pricing">Pricing</a></li>
+                        <li><a href="#booking" data-lang="nav_book">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-lang="footer_contact">Contact</h4>
+                    <ul>
+                        <li>📍 Jamshedpur, Jharkhand</li>
+                        <li>📞 +91 91101 06612</li>
+                        <li>✉️ sapna.mehndi@email.com</li>
+                        <li>📷 @jamshedpurmehndiartist</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-lang="footer_hours">Working Hours</h4>
+                    <ul>
+                        <li data-lang="footer_h1">Mon - Sat: 9 AM - 8 PM</li>
+                        <li data-lang="footer_h2">Sunday: By appointment</li>
+                        <li data-lang="footer_h3">Home visits available</li>
+                        <li data-lang="footer_h4">Travels within 30 km</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-lang="footer_copy">&copy; 2026 Sapna Mehndi Art, Jamshedpur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919110106612?text=Hi%20Sapna!%20I%20want%20to%20enquire%20about%20mehndi." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        💬
+    </a>
+
+    <!-- UPI Payment Modal (hidden by default) -->
+    <div class="upi-modal" id="upiModal" style="display:none;">
+        <div class="modal-overlay" onclick="closeUPIModal()"></div>
+        <div class="modal-content upi-modal-content">
+            <button class="modal-close" onclick="closeUPIModal()">&times;</button>
+            <div class="modal-icon">💳</div>
+            <h3>Pay via UPI</h3>
+            <div class="upi-summary" id="upiSummary"></div>
+            
+            <div class="upi-apps">
+                <h4>Choose Payment App</h4>
+                <div class="upi-app-grid">
+                    <button class="upi-app-btn" onclick="payWithUPI('gpay')" data-app="gpay">
+                        <span class="upi-app-icon">📱</span>
+                        <span>Google Pay</span>
+                    </button>
+                    <button class="upi-app-btn" onclick="payWithUPI('phonepe')" data-app="phonepe">
+                        <span class="upi-app-icon">📱</span>
+                        <span>PhonePe</span>
+                    </button>
+                    <button class="upi-app-btn" onclick="payWithUPI('paytm')" data-app="paytm">
+                        <span class="upi-app-icon">📱</span>
+                        <span>Paytm</span>
+                    </button>
+                    <button class="upi-app-btn" onclick="payWithUPI('bhim')" data-app="bhim">
+                        <span class="upi-app-icon">📱</span>
+                        <span>BHIM</span>
+                    </button>
+                    <button class="upi-app-btn" onclick="payWithUPI('generic')" data-app="generic">
+                        <span class="upi-app-icon">📱</span>
+                        <span>Other UPI</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="upi-qr-section">
+                <h4>Or Scan QR Code</h4>
+                <div class="qr-code" id="qrCode"></div>
+                <p class="upi-id-display">UPI ID: <strong>sapnamehndi@upi</strong></p>
+            </div>
+
+            <div class="upi-manual">
+                <h4>Or Pay Manually</h4>
+                <div class="upi-id-copy">
+                    <input type="text" value="sapnamehndi@upi" id="upiIdField" readonly>
+                    <button onclick="copyUPIId()" class="btn-copy">Copy</button>
+                </div>
+            </div>
+
+            <div class="upi-confirmation">
+                <p>After payment, share screenshot on WhatsApp for instant confirmation</p>
+                <a href="#" id="upiWhatsappLink" target="_blank" rel="noopener" class="btn btn-whatsapp" style="margin-top:10px;display:inline-block;text-decoration:none;">
+                    💬 Share Payment Proof
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="lang.js"></script>
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+    <script src="upi-payment.js"></script>
+    <script>
+        // Load gallery images from Firebase for visitors
+        async function loadPublicGallery() {
+            try {
+                const images = await getGalleryFromFirebase();
+                if (images.length > 0) {
+                    const fallbackGallery = document.getElementById('fallbackGallery');
+                    if (fallbackGallery) {
+                        fallbackGallery.innerHTML = images.map(img => `
+                            <div class="gallery-item">
+                                <img src="${img.url}" alt="Mehndi Design by Sapna" 
+                                     style="width:100%;height:280px;object-fit:cover;border-radius:12px;" 
+                                     loading="lazy">
+                            </div>
+                        `).join('');
+                    }
+                }
+            } catch(e) {
+                console.log('Using fallback gallery');
+            }
+        }
+        // Load after page ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadPublicGallery);
+        } else {
+            loadPublicGallery();
+        }
+    </script>
+</body>
+</html>
