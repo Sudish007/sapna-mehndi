@@ -110,17 +110,15 @@ function openUPIModal() {
     // Generate QR code
     generateQRCode();
 
-    // Update WhatsApp link
+    // Update WhatsApp link with order details
     const whatsappMsg = encodeURIComponent(
-        `💰 *Payment Confirmation*\n\n` +
+        `Hi Sapna! I've made the payment.\n\n` +
         `Order ID: ${currentPayment.orderId}\n` +
         `Name: ${currentPayment.customerName}\n` +
-        `Phone: ${currentPayment.customerPhone}\n` +
         `Service: ${formatService(currentPayment.service)}\n` +
-        `Amount Paid: ₹${currentPayment.amount}\n` +
-        `Date: ${currentPayment.date}\n` +
-        `Time: ${currentPayment.time}\n\n` +
-        `Please confirm my booking. Sharing payment screenshot.`
+        `Amount: ₹${currentPayment.amount}\n` +
+        `Date: ${currentPayment.date}\n\n` +
+        `Sharing payment screenshot below 👇`
     );
     document.getElementById('upiWhatsappLink').href = 
         `https://wa.me/919110106612?text=${whatsappMsg}`;
